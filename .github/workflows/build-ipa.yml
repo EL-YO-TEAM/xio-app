@@ -1,0 +1,46 @@
+name: Build IPA
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build archive (unsigned)
+        run: |
+          xcodebuild \
+            -project Xio.xcodeproj \
+            -scheme Xio \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath build/Xio.xcarchive \
+            archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES
+
+      - name: Package into .ipa
+        run: |
+          mkdir -p Payload
+          cp -R build/Xio.xcarchive/Products/Applications/Xio.app Payload/
+          zip -r Xio.ipa Payload >/dev/null
+          echo "IPA listo:"; ls -lh Xio.ipa
+
+      - name: Upload .ipa
+        uses: actions/upload-artifact@v4
+        with:
+          name: Xio-ipa
+          path: Xio.ipa
+          if-no-files-found: error

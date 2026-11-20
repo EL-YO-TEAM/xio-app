@@ -1,0 +1,23 @@
+===========================================
+  APP XIO COMPANY  -  cómo sacar tu .ipa
+===========================================
+
+NO necesitas Mac. La compilación se hace GRATIS en la nube (GitHub).
+
+PASOS:
+1) Entra a github.com e inicia sesión (o crea cuenta gratis).
+2) Crea un repositorio nuevo (botón "New"). Nombre: xio-app. Déjalo Público o Privado, da igual.
+3) Sube TODOS estos archivos y carpetas al repo
+   (incluyendo la carpeta .github). Puedes arrastrarlos en
+   "uploading an existing file" / "Add file" > "Upload files".
+4) Al subirlos, la compilación arranca sola. Entra a la pestaña
+   "Actions", espera a que el trabajo "Build IPA" termine (palomita verde, ~5-8 min).
+5) Abre ese trabajo y abajo, en "Artifacts", descarga "Xio-ipa".
+   Adentro viene Xio.ipa.
+6) Abre Sideloadly en tu PC, conecta el iPhone, arrastra Xio.ipa,
+   firma con tu Apple ID e instala. ¡Listo!
+
+Si Actions pide permiso la primera vez, dale "I understand... enable".
+
+Tu app abre sin internet (va empaquetada). Los videos de redes
+se reproducen cuando tengas datos/WiFi.
