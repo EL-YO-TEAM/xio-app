@@ -6,6 +6,21 @@
   <string>Xio</string>
   <key>CFBundleName</key>
   <string>Xio</string>
+  <key>CFBundleExecutable</key>
+  <string>Xio</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>LSRequiresIPhoneOS</key>
+  <true/>
+  <key>MinimumOSVersion</key>
+  <string>14.0</string>
+  <key>UIDeviceFamily</key>
+  <array>
+    <integer>1</integer>
+    <integer>2</integer>
+  </array>
   <key>CFBundleIdentifier</key>
   <string>com.xiocompany.app</string>
   <key>CFBundleShortVersionString</key>
